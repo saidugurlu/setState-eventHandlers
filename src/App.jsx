@@ -4,10 +4,9 @@ import ReactDOM from "react-dom";
 import _jobs from "./data/jobs.json";
 //import card from "./components/card"
 
-_jobs.forEach(job => {
-  job.status = "send"
-})
-
+_jobs.forEach((job) => {
+  job.status = "send";
+});
 
 function App() {
   const [displayKind, setDisplayKind] = useState("full");
@@ -15,6 +14,26 @@ function App() {
   console.log(jobs);
   const handleToggleView = () => {
     setDisplayKind(displayKind === "full" ? "list" : "full");
+  };
+  const handleStatusChange = (job) => {
+    switch (job.status) {
+      case "send":
+        job.status = "wait";
+        break;
+      case "wait":
+        job.status = "interview";
+        break;
+      case "interview":
+        job.status = "declined";
+        break;
+      case "declined":
+        job.status = "accepted";
+        break;
+      case "accepted":
+        job.status = "send";
+        break;
+    }
+    setJobs([...jobs]);
   };
   return (
     <div className="App">
@@ -25,12 +44,12 @@ function App() {
           {jobs.map((job, index) => {
             return (
               <div key={index} className="job">
-                 <div className="header">  
-                <div className="position">
-                  {" "}
-                  <a href={job.url}>{job.position} </a>
-                </div>
-                <button className="status">{job.status}</button>
+                <div className="header">
+                  <div className="position">
+                    {" "}
+                    <a href={job.url}>{job.position} </a>
+                  </div>
+                  <button onClick={() => handleStatusChange(job)} className="status">{job.status}</button>
                 </div>
                 <div className="skills"> {job.skills}</div>
                 <div className="bulkText">{job.bulkText}</div>
