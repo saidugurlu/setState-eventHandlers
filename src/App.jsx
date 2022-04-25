@@ -25,9 +25,12 @@ function App() {
           {jobs.map((job, index) => {
             return (
               <div key={index} className="job">
+                 <div className="header">  
                 <div className="position">
                   {" "}
                   <a href={job.url}>{job.position} </a>
+                </div>
+                <button className="status">{job.status}</button>
                 </div>
                 <div className="skills"> {job.skills}</div>
                 <div className="bulkText">{job.bulkText}</div>
