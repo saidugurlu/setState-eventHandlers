@@ -45,7 +45,10 @@ function App() {
     }
     setJobs([...jobs]);
   };
+
+  
   return (
+    
     <div className="App">
       <h1>Job Application Process</h1>
       <button onClick={handleToggleView}>Toggle View</button>
@@ -56,6 +59,7 @@ function App() {
       )}
     </div>
   );
-}
 
+
+ 
 export default App;
