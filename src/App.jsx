@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.scss";
 import ReactDOM from "react-dom";
 import _jobs from "./data/jobs.json";
-//import card from "./components/card"
+import JobsFull from "./components/JobsFull.jsx"
 
 _jobs.forEach((job) => {
   job.status = "send";
@@ -40,32 +40,8 @@ function App() {
       <h1>Job Application Process</h1>
       <button onClick={handleToggleView}>Toggle View</button>
       {displayKind === "full" ? (
-        <div className="jobs">
-          {jobs.map((job, index) => {
-            return (
-              <div key={index} className={`job ${job.status}`}>
-                <div className="header">
-                  <div className="position">
-                    <a href={job.url}>{job.position} </a>
-                  </div>
-                  <button
-                    onClick={() => handleStatusChange(job)}
-                    className="status"
-                  >
-                    {job.status}
-                  </button>
-                </div>
-                <div className="skills"> {job.skills}</div>
-                {job.status !== 'declined' && (
-									<div className="bulkText">
-										{job.bulkText}
-									</div>
-								)}
-              </div>
-            );
-          })}
-        </div>
-      ) : (
+        <JobsFull jobs={jobs} handleStatusChange={handleStatusChange}/>
+        ): (
         <ul className="jobList">
           {jobs.map((job, index) => {
             return (
