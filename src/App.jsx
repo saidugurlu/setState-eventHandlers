@@ -12,9 +12,18 @@ _jobs.forEach((job) => {
 function App() {
   const [displayKind, setDisplayKind] = useState("full");
   const [jobs, setJobs] = useState(_jobs);
-  console.log(jobs);
+
+  const saveToLocalStorage = () => {
+    const jobAppState = {
+      displayKind,
+      jobs,
+    };
+    localStorage.setItem("jobAppState", JSON.stringify(jobAppState));
+  };
+
   const handleToggleView = () => {
-    setDisplayKind(displayKind === "full" ? "list" : "full");
+    const _displayKind = displayKind === "full" ? "list" : "full";
+    setDisplayKind(_displayKind);
   };
   const handleStatusChange = (job) => {
     switch (job.status) {

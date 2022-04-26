@@ -1,78 +1,80 @@
 body {
-	background-color: #333;
+  background-color: #333;
+  a {
+    color: rgb(192, 111, 45);
+  }
 
-	.App {
-		padding: 20px;
-		color: #ccc;
+  .App {
+    padding: 20px;
+    color: #ccc;
 
-		.jobs {
-			.job {
-				background-color: #222;
-				padding: 20px;
-				margin: 0 0 20px 0;
+    .jobs {
+      .job {
+        background-color: #222;
+        padding: 20px;
+        margin: 0 0 20px 0;
 
-				.header {
-					display: flex;
-					justify-content: space-between;
+        .header {
+          display: flex;
+          justify-content: space-between;
 
-					.position {
-						a {
-							color: rgb(192, 111, 45);
-						}
-					}
+          .position {
+            a {
+              color: rgb(192, 111, 45);
+            }
+          }
 
-					.status {
-						background-color: #aaa;
-					}
-				}
+          .status {
+            background-color: #aaa;
+          }
+        }
 
-				.skills {
-					color: rgb(203, 203, 87);
-				}
+        .skills {
+          color: rgb(203, 203, 87);
+        }
 
-				.bulkText {
-					font-size: .9rem;
-				}
-			}
+        .bulkText {
+          font-size: 0.9rem;
+        }
+      }
 
+      .job.send {
+        background-color: rgb(70, 72, 70);
+      }
 
-			.job.send {
-				background-color: rgb(70, 72, 70);
-			}
+      .job.wait {
+        background-color: rgb(79, 79, 14);
+      }
 
-			.job.wait {
-				background-color: rgb(79, 79, 14);
-			}
+      .job.interview {
+        background-color: rgb(61, 22, 22);
+      }
 
-			.job.interview {
-				background-color: rgb(61, 22, 22);
-			}
+      .job.declined {
+        background-color: #000;
 
-			.job.declined {
-				background-color: #000;
+        .position {
+          a {
+            color: #222;
+          }
+        }
 
-				.position {
-					a {
-						color: #222;
-					}
-				}
+        .skills {
+          color: #222;
+        }
+      }
 
-				.skills {
-					color: #222;
-				}
-			}
+      .job.accepted {
+        background-color: rgb(7, 85, 24);
+      }
+    }
 
-			.job.accepted {
-				background-color: rgb(7, 85, 24);
-			}
-		}
-
-		ul.jobsList {
-			li.job {
-				a {
-					color: rgb(192, 111, 45);
-				}
-			}
-		}
-	}
+    ul.jobsList {
+      li.job {
+        a {
+          color: rgb(237, 210, 188);
+        }
+      }
+    }
+  }
 }
